@@ -6,7 +6,6 @@
         {
             int sum=0;
             Console.Clear();
-            Console.WriteLine("Hello, World!");
             for(var i=1; i<=100; i++) 
             {
                  sum += i;
