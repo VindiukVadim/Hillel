@@ -6,6 +6,7 @@
         {
             int sum=0;
             Console.Clear();
+            Console.WriteLine("Lektion #1. Learning GIT");
             for(var i=1; i<=100; i++) 
             {
                  sum += i;
