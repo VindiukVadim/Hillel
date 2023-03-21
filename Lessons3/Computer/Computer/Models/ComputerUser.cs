@@ -77,7 +77,7 @@ namespace Computer.Models
                 ram.Eject();
             }
             ramSlots.Clear();
-            foreach (IHardDrive hardDrive in hardDriveSlots)
+            foreach (HardDrive hardDrive in hardDriveSlots)
             {
                 hardDrive.Remove();
             }
