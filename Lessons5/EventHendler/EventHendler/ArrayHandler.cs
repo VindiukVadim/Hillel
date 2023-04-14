@@ -37,13 +37,9 @@ namespace Delegat
 
         private void OnMyEvent(Arguments args)
         {
-            //var args = new EventArgs();
             MyEvent?.Invoke(this, args);
 
         }
-
-
-
     }
 
     public class Arguments : EventArgs
