@@ -1,4 +1,5 @@
-﻿using NInjectDI.Interfaces;
+﻿using Ninject;
+using NInjectDI.Interfaces;
 using System;
 using System.Text;
 
@@ -8,12 +9,15 @@ namespace NInjectDI
     {
         static void Main(string[] args)
         {
-            var newRandomMessage = new RandomMessageBuilder(new DataTimeGenerator(), new GreetingsGenerator(), new NamesGenerator());
-            var resultString = new StringBuilder();
-            resultString.Append(newRandomMessage.AddDateTime(false)+" ");
-            resultString.Append(newRandomMessage.AddGreeting()+" ");
-            resultString.Append(newRandomMessage.AddName()+" ");
-            Console.WriteLine(resultString);
+            var module = new MessageModule();
+            var kernel = new StandardKernel(module);
+
+            var message = kernel.Get<RandomMessageBuilder>();
+            var result = new StringBuilder();
+            result.Append(message.AddDateTime(true) + " ");
+            result.Append(message.AddGreeting() + " ");
+            result.Append(message.AddName() + " ");
+            Console.WriteLine(result);
             Console.ReadLine();
            
         }
