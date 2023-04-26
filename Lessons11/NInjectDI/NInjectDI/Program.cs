@@ -10,9 +10,9 @@ namespace NInjectDI
         {
             var newRandomMessage = new RandomMessageBuilder(new DataTimeGenerator(), new GreetingsGenerator(), new NamesGenerator());
             var resultString = new StringBuilder();
-            resultString.AppendLine(newRandomMessage.AddDateTime(false));
-            resultString.AppendLine(newRandomMessage.AddGreeting());
-            resultString.AppendLine(newRandomMessage.AddName());
+            resultString.Append(newRandomMessage.AddDateTime(false)+" ");
+            resultString.Append(newRandomMessage.AddGreeting()+" ");
+            resultString.Append(newRandomMessage.AddName()+" ");
             Console.WriteLine(resultString);
             Console.ReadLine();
            
