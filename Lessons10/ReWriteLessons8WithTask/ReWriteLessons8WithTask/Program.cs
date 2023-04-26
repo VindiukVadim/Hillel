@@ -42,9 +42,6 @@ namespace CreateNumbersInTasks
                         notEvenCounter++;
                     }
                 }
-
-                // Add a small delay to simulate actual processing time
-                await Task.Delay(100);
             }
         }
     }
