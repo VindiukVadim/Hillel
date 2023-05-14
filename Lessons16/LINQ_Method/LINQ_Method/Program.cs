@@ -42,25 +42,25 @@ namespace LINQ_Method
 
 
 
+            //кількість країн по континентах
+            var countriesByContinent = Country.GroupBy(c => c.Mainland).Select(g => new { Continent = g.Key, Count = g.Count() });
+            foreach (var item in countriesByContinent)
+            {
+                Console.WriteLine($"Continent: {item.Continent}, Count: {item.Count}");
+            }
 
-            //var countriesByContinent = Country.GroupBy(c => c.Mainland).Select(g => new { Continent = g.Key, Count = g.Count() });
-            //foreach (var item in countriesByContinent)
-            //{
-            //    Console.WriteLine($"Continent: {item.Continent}, Count: {item.Count}");
-            //}
+            //топ-3 міст за населенням без урахування тих, що були засновані після 1200 року
+            var topCities = Town
+            .Where(c => c.FoundingDate.Year <= 1200)
+            .OrderByDescending(c => c.Population)
+            .Take(3);
 
+            foreach (var city in topCities)
+            {
+                Console.WriteLine($"City: {city.Name}, Population: {city.Population}");
+            }
 
-            //var topCities = Town
-            //.Where(c => c.FoundingDate.Year <= 1200)
-            //.OrderByDescending(c => c.Population)
-            //.Take(3);
-
-            //foreach (var city in topCities)
-            //{
-            //    Console.WriteLine($"City: {city.Name}, Population: {city.Population}");
-            //}
-
-
+            //країна з найбільшим населенням і її столицю
             var countryWithLargestPopulation = Country
                .OrderByDescending(c => c.Towns.Sum(ci => ci.Population))
                .First();
@@ -68,17 +68,17 @@ namespace LINQ_Method
             Console.WriteLine($"Country: {countryWithLargestPopulation.Name}, Population: {countryWithLargestPopulation.Towns.Sum(ci => ci.Population)}");
             Console.WriteLine($"Capital: {countryWithLargestPopulation.Capital.Name}");
 
+            //континенти з найбильшою кількістю міст, в яких населення перевищує 1.000.000
+            var continentsWithLargeCities = Town
+            .Where(c => c.Population > 1000000)
+            .GroupBy(c => c.Country.Mainland)
+            .Select(g => new { Continent = g.Key, Count = g.Count() })
+            .OrderByDescending(g => g.Count);
 
-            //var continentsWithLargeCities = Town
-            //.Where(c => c.Population > 1000000)
-            //.GroupBy(c => c.Country.Mainland)
-            //.Select(g => new { Continent = g.Key, Count = g.Count() })
-            //.OrderByDescending(g => g.Count);
-
-            //foreach (var item in continentsWithLargeCities)
-            //{
-            //    Console.WriteLine($"Continent: {item.Continent}, Count: {item.Count}");
-            //}
+            foreach (var item in continentsWithLargeCities)
+            {
+                Console.WriteLine($"Continent: {item.Continent}, Count: {item.Count}");
+            }
 
 
         }

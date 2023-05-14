@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Lessons 17 HTML</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Резюме</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#MainInfo">Головна</a></li>
+                <li><a href="#ContactDetails">Контакти</a></li>
+                <li><a href="#ContactForm">Зв'язатись</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="MainInfo">
+                <h2>
+                    Головна інформація
+                </h2>
+                <table class="table">
+                    <tr>
+                        <td>Фото</td>
+                        <td><img src="logo.jpg" alt="Photo"></td>
+                    </tr>
+                    <tr>
+                        <td>ПІБ</td>
+                        <td>Іванов Іван Іванович</td>
+                    </tr>
+                    <tr>
+                        <td>Освіта</td>
+                        <td>Вища</td>
+                    </tr>
+                    <tr>
+                        <td>Детальний опис</td>
+                        <td>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="ContactDetails">
+                <h2>
+                    Контактна інформація
+                </h2>
+                    <p>Телефон: 099 123 45 67</p>
+                    <p>E-mail: IIvanov@gmail.com</p>
+            </section>
+            <section>
+                    <h2>Форма для зв'язку</h2>
+                    <form id = "ContactForm">
+                        <label for="fio">Прізвище Ім'я Побатькові</label>
+                        <input id="fio" type="text">
+                        <br>
+                        <label for="tel">Контактний телефон для зв'язку</label>
+                        <input id="tel" type="tel">
+                        <br>
+                        <label for="desc">Текст звернення</label>
+                        <textarea id="desc" cols="30" rows="10"></textarea>
+                        <br>
+                        <button type="submit" onclick="Submitbutton()">Відправити</button>
+                    </form>
+            </section>
+        </main>
+    </div>
+    <script src="Main.js"></script>
+</body>
+</html>
