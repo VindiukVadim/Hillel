@@ -12,7 +12,15 @@ namespace HttpRequest
         {
 
 
+            var http = new HttpSender();
 
+            //http.GetRequest();
+
+            //http.DeleteRequest();
+
+            //http.PostRequest();
+
+            //http.PutRequest();
 
 
 
